@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raveen Abeydeera - Software Engineering Student</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+     <!-- Tailwind Config (for CDN) -->
+     <!-- IMPORTANT: Place this right after the Tailwind CDN script -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode using the 'dark' class
+             theme: {
+                extend: {
+                    colors: {
+                        // Light Mode
+                        'bg-light': '#F5F7F8',       // Light Grey/Off-white
+                        'text-light': '#45474B',     // Dark Grey
+                        'card-light': '#ffffff',     // White
+                        'border-light': '#d1d5db',   // Lighter Grey
+                        'muted-light': '#495E57',    // Dark Greenish-grey
+
+                        // Dark Mode
+                        'bg-dark': '#45474B',        // Dark Grey
+                        'text-dark': '#F5F7F8',      // Light Grey/Off-white
+                        'card-dark': '#495E57',      // Dark Greenish-grey
+                        'border-dark': '#6b7280',    // Medium Grey
+                        'muted-dark': '#adb5bd',     // Lighter Grey (for muted text)
+
+                        // Accent
+                        'accent-yellow': '#F4CE14',     // Yellow
+                        'accent-yellow-darker': '#e0bb0f', // Darker Yellow
+                        'accent-yellow-text-dark': '#45474B', // Text color for yellow background (Dark Grey)
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons Core UMD -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Link External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode-bg dark-mode-text animated-gradient-bg">
+
+    <!-- Mouse Follower Elements -->
+    <div class="mouse-follower-dot"></div>
+    <div class="mouse-follower"></div>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 dark-mode-nav backdrop-blur-md" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Name -->
+                <div class="flex-shrink-0 flex items-center">
+                     <span class="text-xl font-bold dark-mode-text">
+                        <span class="text-accent-yellow">&lt;</span>Raveen Abeydeera<span class="text-accent-yellow">/&gt;</span>
+                     </span>
+                </div>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#home" class="dark-mode-text-muted hover:text-accent-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                    <a href="#about" class="dark-mode-text-muted hover:text-accent-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                    <a href="#projects" class="dark-mode-text-muted hover:text-accent-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Projects</a>
+                    <a href="#contact" class="dark-mode-text-muted hover:text-accent-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                </nav>
+
+                <!-- Theme Toggle & Mobile Menu Button -->
+                <div class="flex items-center">
+                     <button id="theme-toggle" class="dark-mode-text-muted hover:text-accent-yellow p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg-dark dark:focus:ring-offset-bg-light focus:ring-accent-yellow mr-2">
+                        <!-- Icon will be inserted here by JS -->
+                        <span id="theme-icon-container" class="w-5 h-5 inline-block"></span>
+                    </button>
+                    <button id="mobile-menu-button" class="md:hidden dark-mode-text-muted hover:text-accent-yellow p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg-dark dark:focus:ring-offset-bg-light focus:ring-accent-yellow">
+                         <!-- Icon will be inserted here by JS -->
+                         <span id="mobile-menu-icon-container" class="w-6 h-6 inline-block"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-inherit">
+             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                 <a href="#home" class="block dark-mode-text-muted hover:text-accent-yellow px-3 py-2 rounded-md text-base font-medium transition-colors">Home</a>
+                 <a href="#about" class="block dark-mode-text-muted hover:text-accent-yellow px-3 py-2 rounded-md text-base font-medium transition-colors">About</a>
+                 <a href="#projects" class="block dark-mode-text-muted hover:text-accent-yellow px-3 py-2 rounded-md text-base font-medium transition-colors">Projects</a>
+                 <a href="#contact" class="block dark-mode-text-muted hover:text-accent-yellow px-3 py-2 rounded-md text-base font-medium transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center pt-16 pb-16 px-4">
+            <div class="text-center max-w-4xl reveal">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold dark-mode-text leading-tight mb-4">
+                    Hi, I'm <span class="text-accent-yellow">Raveen Abeydeera</span>
+                </h1>
+                <p class="text-xl sm:text-2xl md:text-3xl dark-mode-text-muted font-medium mb-8">
+                    Software Engineering Student specializing in Web & Mobile Applications.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#projects" class="bg-accent-yellow text-accent-yellow-text-dark hover:bg-accent-yellow-darker transition-colors duration-300 px-8 py-3 rounded-lg text-lg font-semibold shadow-lg">View Projects</a>
+                    <a href="#contact" class="dark-mode-card border dark-mode-border dark-mode-text hover:border-accent-yellow hover:text-accent-yellow transition-colors duration-300 px-8 py-3 rounded-lg text-lg font-semibold shadow-lg">Contact Me</a>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                 <!-- Scroll down indicator -->
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                    <svg class="w-6 h-6 text-accent-yellow" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h2 class="text-3xl sm:text-4xl font-bold dark-mode-text mb-6">About Me</h2>
+                    <p class="dark-mode-text-muted text-lg mb-4">
+                        I'm currently pursuing a Higher Diploma in Software Engineering at ICBT Campus (Part-Time since May 25th, 2024). I'm passionate about crafting clean, efficient, and user-friendly digital experiences.
+                    </p>
+                    <p class="dark-mode-text-muted text-lg mb-6">
+                        My journey involves exploring various technologies and applying them to build practical solutions. I enjoy the challenge of learning new frameworks and tools.
+                    </p>
+                    <h3 class="text-2xl font-semibold dark-mode-text mb-4">Technologies I Use:</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-accent-yellow/20 text-accent-black px-4 py-1 rounded-full text-sm font-medium">Vue.js</span>
+                        <span class="bg-accent-yellow/20 text-accent-black px-4 py-1 rounded-full text-sm font-medium">JavaScript</span>
+                        <span class="bg-accent-yellow/20 text-accent-black px-4 py-1 rounded-full text-sm font-medium">HTML</span>
+                        <span class="bg-accent-yellow/20 text-accent-black px-4 py-1 rounded-full text-sm font-medium">CSS</span>
+                        <span class="bg-accent-yellow/20 text-accent-black px-4 py-1 rounded-full text-sm font-medium">Tailwind CSS</span>
+                        <span class="bg-accent-yellow/20 text-accent-black px-4 py-1 rounded-full text-sm font-medium">Bootstrap</span>
+                        <span class="bg-accent-yellow/20 text-accent-black px-4 py-1 rounded-full text-sm font-medium">Flutter</span>
+                        <span class="bg-accent-yellow/20 text-accent-black px-4 py-1 rounded-full text-sm font-medium">Java</span>
+                        <span class="bg-accent-yellow/20 text-accent-black px-4 py-1 rounded-full text-sm font-medium">C++</span>
+                        <span class="bg-accent-yellow/20 text-accent-black px-4 py-1 rounded-full text-sm font-medium">Python</span>
+                        <span class="bg-accent-yellow/20 text-accent-black px-4 py-1 rounded-full text-sm font-medium">PHP</span>
+
+                    </div>
+                </div>
+                <div class="reveal flex justify-center items-center">
+                    <!-- Profile Image Placeholder -->
+                    <img src="my-image.jpg"
+                         alt="Raveen Abeydeera Profile Picture"
+                         class="w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover shadow-lg border-4 border-accent-yellow/50"
+                         onerror="this.onerror=null; this.src='my-image.jpg';">
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 dark-mode-bg">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center reveal mb-12">
+                     <h2 class="text-3xl sm:text-4xl font-bold dark-mode-text mb-4">My Projects</h2>
+                     <p class="text-lg dark-mode-text-muted max-w-2xl mx-auto">Here are a few projects I've worked on.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="dark-mode-card rounded-xl shadow-lg overflow-hidden border dark-mode-border reveal transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                        <img src="https://placehold.co/600x400/45474B/F5F7F8?text=Pet+Shop+System" alt="Pet Shop Management System" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/45474B?text=Image+Error';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold dark-mode-text mb-2">Pet Shop Management System</h3>
+                            <p class="dark-mode-text-muted mb-4 text-sm">A system to manage inventory, sales, and customer data for a pet shop.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-accent-yellow/20 text-accent-yellow px-3 py-1 rounded-full text-xs font-medium">Management</span>
+                                <span class="bg-accent-yellow/20 text-accent-yellow px-3 py-1 rounded-full text-xs font-medium">System</span>
+                             </div>
+                            {/* <a href="#" class="text-accent-white hover:underline font-medium">Learn More &rarr;</a> */}
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                     <div class="dark-mode-card rounded-xl shadow-lg overflow-hidden border dark-mode-border reveal transform transition duration-300 hover:scale-105 hover:shadow-2xl" style="transition-delay: 100ms;">
+                        <img src="https://placehold.co/600x400/495E57/F5F7F8?text=Greenlife+Wellness" alt="Greenlife Wellness Web App" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/45474B?text=Image+Error';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold dark-mode-text mb-2">Greenlife Wellness</h3>
+                            <p class="dark-mode-text-muted mb-4 text-sm">A web application focused on wellness tracking and healthy lifestyle products.</p>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-accent-yellow/20 text-accent-yellow px-3 py-1 rounded-full text-xs font-medium">Web App</span>
+                                <span class="bg-accent-yellow/20 text-accent-yellow px-3 py-1 rounded-full text-xs font-medium">Vue.js</span>
+                            </div>
+                           {/* <a href="#" class="text-accent-white hover:underline font-medium">Learn More &rarr;</a> */}
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="dark-mode-card rounded-xl shadow-lg overflow-hidden border dark-mode-border reveal transform transition duration-300 hover:scale-105 hover:shadow-2xl" style="transition-delay: 200ms;">
+                        <img src="https://placehold.co/600x400/F4CE14/45474B?text=LuxeVisa+Resort" alt="LuxeVisa Resort Mobile App" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/45474B?text=Image+Error';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold dark-mode-text mb-2">LuxeVisa Resort</h3>
+                            <p class="dark-mode-text-muted mb-4 text-sm">A mobile application for booking and managing stays at a luxury resort.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-accent-yellow/20 text-accent-yellow px-3 py-1 rounded-full text-xs font-medium">Mobile App</span>
+                                <span class="bg-accent-yellow/20 text-accent-yellow px-3 py-1 rounded-full text-xs font-medium">Hospitality</span>
+                            </div>
+                           {/* <a href="#" class="text-accent-white hover:underline font-medium">Learn More &rarr;</a> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center reveal mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold dark-mode-text mb-4">Contact & AI Assistant</h2>
+                    <p class="text-lg dark-mode-text-muted max-w-2xl mx-auto">Reach out directly or ask my AI assistant about me!</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                     <!-- Direct Email Form -->
+                    <div class="reveal dark-mode-card p-8 rounded-xl shadow-lg border dark-mode-border">
+                         <h3 class="text-2xl font-semibold dark-mode-text mb-6">Send Me a Message</h3>
+                         <form id="contact-form" class="space-y-6">
+                             <div>
+                                <label for="name" class="block text-sm font-medium dark-mode-text-muted mb-1">Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-lg border dark-mode-border dark-mode-input focus:outline-none focus:ring-2 focus:ring-accent-yellow focus:border-transparent" placeholder="Your Name">
+                            </div>
+                             <div>
+                                <label for="email" class="block text-sm font-medium dark-mode-text-muted mb-1">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-lg border dark-mode-border dark-mode-input focus:outline-none focus:ring-2 focus:ring-accent-yellow focus:border-transparent" placeholder="your.email@example.com">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium dark-mode-text-muted mb-1">Message</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 rounded-lg border dark-mode-border dark-mode-input focus:outline-none focus:ring-2 focus:ring-accent-yellow focus:border-transparent resize-none" placeholder="Your message..."></textarea>
+                            </div>
+                             <button type="submit" class="w-full bg-accent-yellow text-accent-yellow-text-dark hover:bg-accent-yellow-darker transition-colors duration-300 px-6 py-3 rounded-lg text-lg font-semibold shadow-md">
+                                Send Email
+                            </button>
+                        </form>
+                        <p id="form-message" class="mt-4 text-center text-sm dark-mode-text-muted"></p>
+                    </div>
+
+                    <!-- AI Assistant -->
+                    <div class="reveal dark-mode-card p-6 rounded-xl shadow-lg border dark-mode-border flex flex-col h-[600px]" style="transition-delay: 100ms;">
+                        <h3 class="text-2xl font-semibold dark-mode-text mb-4 flex items-center">
+                            <span class="mr-2 text-accent-yellow"><i data-lucide="bot" class="w-6 h-6"></i></span> <!-- Icon via JS -->
+                            AI Assistant
+                        </h3>
+                        <div id="chat-window" class="flex-grow overflow-y-auto mb-4 pr-2 space-y-3 dark-mode-bg p-3 rounded-lg border dark-mode-border">
+                            <!-- Chat messages will be appended here -->
+                            <div class="flex justify-start">
+                                <div class="chat-bubble chat-bubble-bot p-3 rounded-lg">
+                                     <p class="text-sm">Hi! I'm Raveen's AI assistant. Ask me about his skills, education, or projects!</p>
+                                </div>
+                            </div>
+                         </div>
+                        <div id="loading-indicator" class="hidden flex justify-start mb-4">
+                             <div class="chat-bubble chat-bubble-bot p-3 rounded-lg">
+                                <div class="loading-dots text-sm">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center mt-auto border-t dark-mode-border pt-4">
+                            <input type="text" id="chat-input" class="flex-grow px-4 py-2 rounded-l-lg border dark-mode-border dark-mode-input focus:outline-none focus:ring-2 focus:ring-accent-yellow focus:border-transparent text-sm" placeholder="Ask a question...">
+                            <button id="send-button" class="bg-accent-yellow text-accent-yellow-text-dark px-5 py-2 rounded-r-lg hover:bg-accent-yellow-darker transition-colors duration-300">
+                                <i data-lucide="send" class="w-4 h-4"></i> <!-- Icon via JS -->
+                             </button>
+                        </div>
+                        <div id="ai-error" class="text-red-500 text-xs mt-2 text-center hidden"></div>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="dark-mode-bg border-t dark-mode-border py-8 px-4 sm:px-6 lg:px-8 mt-16">
+        <div class="max-w-7xl mx-auto text-center dark-mode-text-muted text-sm">
+            <p>&copy; 2025 Raveen Abeydeera. All rights reserved.</p>
+            <p class="mt-2">Built with HTML, Tailwind CSS, and JavaScript.</p>
+             <div class="mt-4 flex justify-center space-x-4">
+                 <!-- Add social links if available -->
+                <a href="mailto:raveen.s.abeydeera@gmail.com" class="hover:text-accent-yellow transition-colors" aria-label="Email">
+                     <i data-lucide="mail" class="w-6 h-6"></i> <!-- Icon via JS -->
+                 </a>
+                {/* <a href="#" class="hover:text-accent-yellow transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-6 h-6"></i></a> */}
+                {/* <a href="#" class="hover:text-accent-yellow transition-colors" aria-label="GitHub"><i data-lucide="github" class="w-6 h-6"></i></a> */}
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link External JS -->
+    <script src="script.js"></script>
+</body>
+</html>
+
