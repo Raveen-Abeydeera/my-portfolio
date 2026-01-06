@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendButton = document.getElementById('send-button');
     const loadingIndicator = document.getElementById('loading-indicator');
     const aiError = document.getElementById('ai-error');
-    const apiKey = "AIzaSyAi3C6fy4zQUMD_wwrPuu9cFmjlDrdJzws"; // Leave empty - handled by environment
+    const apiKey = "AIzaSyA5q4KviJrsJOwi6FGuViHU8px4XVpDa9Y"; // Leave empty - handled by environment
 
     function addChatMessage(message, sender) {
         const messageDiv = document.createElement('div');
@@ -441,4 +441,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 }); // End DOMContentLoaded
+
 
