@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar - Blue Theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-[#f0f9ff] dark:bg-[#00171f];
+}
+::-webkit-scrollbar-thumb {
+  background: #00a8e8; /* Fresh Sky */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #007ea7; /* Cerulean */
+}
+
+/* --- ANIMATED GRADIENT CONFIGURATION --- */
+
+/* 1. Animation Keyframes */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 2. Light Mode Gradient (Subtle White/Blue) */
+/* Text is Dark Black, so background must stay very light */
+.animated-gradient-bg {
+  background-size: 400% 400% !important;
+  animation: gradientShift 15s ease infinite !important;
+  background: linear-gradient(-45deg, #ffffff, #e0f2fe, #f0f9ff, #ffffff);
+}
+
+/* 3. Dark Mode Gradient (Deep Cosmic Blue) */
+/* Text is White, so background must stay dark */
+.dark .animated-gradient-bg {
+  background: linear-gradient(-45deg, #00171f, #003459, #002840, #00171f);
+  background-size: 400% 400% !important;
+}
+
+/* --- CHAT BUBBLES (Professional Blue) --- */
+
+.chat-bubble {
+  max-width: 85%;
+  word-wrap: break-word;
+}
+
+/* User Bubble: Bright Blue (Fresh Sky) */
+.chat-bubble-user {
+  background-color: #00a8e8; 
+  color: #ffffff;
+}
+
+/* Bot Bubble Dark Mode: Deep Space Blue with Border */
+.dark .chat-bubble-bot {
+  background-color: #003459;
+  color: #f8fafc;
+  border: 1px solid #007ea7; /* Subtle border for definition */
+}
+
+/* Bot Bubble Light Mode: Very Light Blue with Border */
+html:not(.dark) .chat-bubble-bot {
+  background-color: #f0f9ff;
+  color: #0f172a;
+  border: 1px solid #00a8e8;
+}
+
+/* Loading Dots */
+.loading-dots span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: currentColor;
+  border-radius: 50%;
+  margin: 0 2px;
+  animation: bounce 1s infinite ease-in-out;
+}
+.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
