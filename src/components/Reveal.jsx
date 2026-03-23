@@ -1,30 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
-export default function Reveal({ children, className = "" }) {
-  const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        observer.unobserve(entry.target);
-      }
-    }, { threshold: 0.1 });
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => { if (ref.current) observer.disconnect(); };
-  }, []);
-
+export default function Reveal({ children, className = "", delay = 0 }) {
   return (
-    <div 
-      ref={ref} 
-      className={`transition-all duration-700 transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      } ${className}`}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.7, delay: delay, ease: "easeOut" }}
+      className={className}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
