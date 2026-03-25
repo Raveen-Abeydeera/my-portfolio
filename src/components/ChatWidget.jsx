@@ -3,7 +3,7 @@ import { Bot, Send } from 'lucide-react';
 
 export default function ChatWidget() {
   const [messages, setMessages] = useState([
-    { text: "Hi! I'm Raveen's AI assistant. Ask me about his skills, education, or projects!", sender: 'bot' }
+    { text: "Hello there! 👋 I'm Raveen's personal AI assistant. I can tell you all about his projects, technical skills, and experience. What would you like to know?", sender: 'bot' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -30,19 +30,24 @@ export default function ChatWidget() {
 
     try {
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             contents: [{ parts: [{ text: userMsg }] }],
             systemInstruction: {
-                parts: [{ text: `You are a professional AI assistant for Raveen Abeydeera.
-                Data:
-                - Role: Software Engineering Student at ICBT Campus.
-                - Email: raveen.s.abeydeera@gmail.com
-                - Skills: React, Vue.js, Tailwind, Java, PHP.
-                - Projects: Greenlife Wellness, LuxeVista Resort.` }]
+                parts: [{ text: `You are the official, friendly, and highly professional AI assistant representing Raveen Abeydeera on his personal portfolio website.
+
+Your goal is to enthusiastically highlight Raveen's skills and present him as an excellent candidate for software engineering roles or freelance work.
+
+Key Information:
+- Identity: Raveen Abeydeera, a passionate Software Engineering Student at ICBT Campus.
+- Tech Stack: Specializes in modern web development using React, Vue.js, Tailwind CSS, JavaScript, Java, and PHP.
+- Projects: Greenlife Wellness (health/wellness frontend platform), Wildroute PWA (nature/travel Progressive Web App) and LuxeVista Resort (responsive booking interface).
+- Contact: Encourage visitors to reach out via email at [EMAIL_ADDRESS] for collaborations.
+
+Tone: Keep answers concise (1-3 short paragraphs), engaging, and directly relevant to the user's question. Do not hallucinate info not provided here.` }]
            }
           })
         }
