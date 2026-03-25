@@ -11,7 +11,7 @@ export default function ChatWidget() {
   const scrollRef = useRef(null);
 
   // NOTE: In production, use import.meta.env.VITE_AI_API_KEY
-  const apiKey = "AIzaSyDbqFBeX-XllGo057RCkhioZx2QrHrCrt0"; 
+  const apiKey = import.meta.env.VITE_AI_API_KEY; 
 
   useEffect(() => {
     if (scrollRef.current) {
