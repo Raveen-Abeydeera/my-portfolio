@@ -40,7 +40,13 @@ const projectsData = [
     desc: "Java-based inventory and staff management system with dual Swing GUI and CLI interfaces.",
     img: "https://placehold.co/600x400/003459/ffffff?text=Pet+Shop"
   },
-
+  {
+    id: "gadgethub",
+    title: "GadgetHub Microservices",
+    category: "Microservices Architecture",
+    desc: "A Service-Oriented Architecture (SOA) system for order management and quotations, built with Python, Flask, and ran via Jupyter Notebooks.",
+    img: "/images/gadgethub/gradio-ui.png"
+  }
 ];
 
 export default function Home() {
@@ -161,7 +167,7 @@ export default function Home() {
             </p>
             <h3 className="text-2xl font-semibold text-text-light dark:text-text-dark mb-4">Technologies:</h3>
             <div ref={techRef} className="flex flex-wrap gap-3">
-              {['Java', 'JavaScript (ES6+)', 'React', 'Next.js', 'Typescript', 'Tailwind CSS', 'Python', 'C++', 'Node.js', 'MERN Stack', 'HTML5', 'CSS 3', 'Bootstrap', 'PHP', 'MySQL', 'SQLite', 'Android SDK', 'Git/Github'].map(tech => (
+              {['Java', 'Python', 'JavaScript (ES6+)', 'React', 'Next.js', 'Typescript', 'Node.js', 'MERN Stack', 'Flask', 'REST APIs', 'Jupyter Notebook', 'Tailwind CSS', 'C++', 'HTML5', 'CSS 3', 'Bootstrap', 'PHP', 'MySQL', 'SQLite', 'Android SDK', 'Git/Github'].map(tech => (
                 <span key={tech} className="bg-card-light dark:bg-card-dark text-accent-primary border border-accent-primary/30 px-4 py-1 rounded-full text-sm font-medium">
                   {tech}
                 </span>
