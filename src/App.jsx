@@ -142,6 +142,38 @@ export default function App() {
                 </p>
               </ProjectDetails>
             } />
+
+            {/* 5. GadgetHub */}
+            <Route path="/project/gadgethub" element={
+              <ProjectDetails
+                title="GadgetHub Microservices"
+                desc="A Service-Oriented Architecture (SOA) based system featuring multiple microservices for order management, quotations, and notifications, built with Flask and Gradio, and executed within interactive Jupyter Notebooks."
+                repoLink="https://github.com/Raveen-Abeydeera/TheGadgetHub-Microservices"
+                techStack={['Python', 'Jupyter Notebook', 'Flask', 'MySQL', 'Gradio', 'REST API']}
+                features={[
+                  'Service-Oriented Architecture: Decoupled microservices for Orders, Quotations, and Notifications.',
+                  'Distributor Integration: Seamless communication with multiple distributor endpoints (TechWorld, ElectroCom, GadgetCentral).',
+                  'Interactive UI: A user-friendly frontend built with Gradio for interacting with the backend services.',
+                  'Relational Database: Secure and structured data persistence using MySQL.',
+                  'RESTful APIs: Communication between services orchestrated via HTTP requests.'
+                ]}
+                screenshots={[
+                  '/images/gadgethub/gradio-ui.png',
+                  '/images/gadgethub/image-1.png',
+                  '/images/gadgethub/image-2.png',
+                  '/images/gadgethub/image-3.png',
+                  '/images/gadgethub/image-4.png',
+                  '/images/gadgethub/image-5.png'
+                ]}
+              >
+                <p className="mb-4">
+                  <strong>GadgetHub</strong> is a comprehensive system designed around a <strong>Service-Oriented Architecture (SOA)</strong>. It demonstrates the coordination of multiple independent microservices to handle complex business processes efficiently.
+                </p>
+                <p>
+                  The system integrates separate services for managing orders, calculating quotations across different distributors, and sending notifications. The frontend provides a seamless <strong>Gradio-based interactive interface</strong>, while the backend relies on <strong>Flask and MySQL</strong> to ensure robust and scalable data management.
+                </p>
+              </ProjectDetails>
+            } />
           </Routes>
 
           <Footer />
